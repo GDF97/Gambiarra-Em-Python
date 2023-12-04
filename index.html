@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Testando</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" name="" id="input" placeholder="insira o cnpj..." />
+      <button id="btn">Consultar API</button>
+    </div>
+    <script>
+      const input = document.getElementById("input");
+      const button = document.getElementById("btn");
+      const fnGetCNPJ = async () => {
+        console.log("iniciando fetch");
+        const value = input.value;
+        const configAPI = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ cnpj: value }),
+        };
+        const url = "http://127.0.0.1:5000/api/GetCNPJ";
+
+        try {
+          const response = await fetch(url, configAPI);
+          const data = await response.json();
+          console.log("Resposta da API: ", data);
+        } catch (error) {
+          console.error("ERROR: ", error);
+        }
+      };
+
+      button.addEventListener("click", fnGetCNPJ);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+# Ignorar arquivos de compilação
+*.pyc
+
+# Ignorar diretórios virtuais
+venv/
+
+# Ignorar arquivos temporários
+.tmp/
